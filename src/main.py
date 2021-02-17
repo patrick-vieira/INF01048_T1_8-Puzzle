@@ -1,6 +1,11 @@
+# Importa bibliotecas basicas necessarias
 import sys
 import logging
 
+# Importa estruturas de dados utilizadas
+from collections import deque
+
+# Importa definicoes do restante do codigo fonte
 from argument_parser import Arguments
 from expand import expand_node
 from node import Node
@@ -33,7 +38,26 @@ def run_expand_nodes_function(arguments: Arguments):
 # Exercicio 03
 # a) BFS
 def run_bfs_algorithm(arguments: Arguments):
-    pass
+    X = list()  # <-- Explorados
+    F = deque() # <-- Fronteira - deque eh uma implementacao para fila
+    F.append(
+        Node(                           # <-- Estado Inicial:
+            arguments.initial_state     # <-- a) State
+            None                        # <-- b) Action
+            0                           # <-- c) Cost
+            None                        # <-- d) Predecessor
+        )
+    )
+    while True:
+        if not F:           # <-- Se a fronteira fica vazia, nao existe caminho
+            return False
+        v = F.popleft()     # <-- Retira um nodo v da fronteira
+        if v.state == "12345678_":  # <-- Chegou no estado final?
+            return v.get_path(arguments.initial_state)  # <-- Entao retorna o caminho ate ele
+        elif v not in X:    # <-- Adiciona v aos explorados caso ainda nao esteja
+            X.append(v)
+        for node in expand_node(v): # <-- Adiciona os vizinhos de V a fronteira
+            F.append(node)
 
 # b) DFS
 def run_dfs_algorithm(arguments: Arguments):

@@ -21,7 +21,7 @@ class Monitor:
 
     def count(self):
         self.expansions += 1
-        print(self.expansions)
+        # print(self.expansions)
 
     def get_execution_time_in_nanoseconds(self):
         return self.end_time - self.start_time

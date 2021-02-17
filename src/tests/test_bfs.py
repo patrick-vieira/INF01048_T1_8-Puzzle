@@ -54,7 +54,7 @@ class TestBreadthFirstSearch(TestCase):
 
         expected_path_moves = ['direita', 'direita']
 
-        expected_expansions = 4
+        expected_expansions = 3
 
         self.assertEqual(expected_path_moves, final_node_moves, "path is incorrect")
         self.assertEqual(expected_expansions, monitor.expansions, "incorrect expected expansions")
@@ -74,7 +74,7 @@ class TestBreadthFirstSearch(TestCase):
                                'abaixo', 'direita', 'abaixo', 'direita', 'cima', 'cima', 'esquerda', 'abaixo',
                                'direita', 'abaixo']
 
-        expected_expansions = 42207
+        expected_expansions = 23313
 
         self.assertEqual(expected_path_moves, final_node_moves, "path is incorrect")
         self.assertEqual(expected_expansions, monitor.expansions, "incorrect expected expansions")
@@ -94,7 +94,7 @@ class TestBreadthFirstSearch(TestCase):
                                'esquerda', 'cima', 'cima', 'direita', 'direita', 'abaixo', 'esquerda', 'abaixo',
                                'direita', 'cima', 'esquerda', 'esquerda', 'abaixo', 'direita', 'direita']
 
-        expected_expansions = 212390
+        expected_expansions = 100002
 
         self.assertEqual(expected_path_moves, final_node_moves, "path is incorrect")
         self.assertEqual(expected_expansions, monitor.expansions, "incorrect expected expansions")

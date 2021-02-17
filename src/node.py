@@ -3,8 +3,11 @@ class Node:
         self.state = state
         self.action = action
         self.cost = cost
-        self.predecessor = predecessor
+        self.predecessor: Node = predecessor
+        self.predecessors: [Node] = list()
         self.successors: [Node] = []
+
+        self.__set_predecessor(predecessor)
 
     def set_successors(self, successor_nodes: []):
         self.successors = successor_nodes
@@ -30,6 +33,11 @@ class Node:
         else:  # <-- se não tem predecessor é o início
             return curr_path
 
+    def __set_predecessor(self, father_node):
+        if father_node:
+            self.predecessors = father_node.predecessors.copy()
+            self.predecessors.append(father_node)
+
     def __str__(self):
         to_string = "(" + str(self.action) \
                     + "," + str(self.state) \
@@ -48,8 +56,8 @@ class Node:
     def __eq__(self, other):
         """Overrides the default implementation"""
         if isinstance(other, Node):
+            # um nó é igual ao outro quando o estado e o custo é o mesmo "e a ação também?"
             return self.state == other.state \
-                   and self.action == other.action \
                    and self.cost == other.cost
 
         return NotImplemented

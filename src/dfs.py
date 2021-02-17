@@ -7,7 +7,7 @@ from monitor import Monitor
 from node import Node
 
 
-def breadth_first_search(root_node: Node) -> (Node, Monitor):
+def depth_first_search(root_node: Node) -> (Node, Monitor):
     X = set()  # <-- Explorados
     F: Deque[Node] = deque()  # <-- Fronteira - deque eh uma implementacao para fila
     F.append(root_node)
@@ -18,12 +18,12 @@ def breadth_first_search(root_node: Node) -> (Node, Monitor):
     while True:
         if not F:  # <-- Se a fronteira fica vazia, nao existe caminho
             return False
-        v = F.popleft()  # <-- Retira um nodo v da fronteira
+        v = F.pop()  # <-- Retira um nodo v da fronteira
         if v.state == parameters.objective_state:  # <-- Chegou no estado final?
             monitor.finish()
             return v, monitor  # <-- Entao retorna o ultimo nó
-        elif v not in X:  # <-- Adiciona v aos explorados caso ainda nao esteja
-            X.add(v)
+        elif v.state not in X:  # <-- Adiciona v aos explorados caso ainda nao esteja
+            X.add(v.state)
             monitor.count()
             for node in expand_node(v):  # <-- Adiciona os vizinhos de V a fronteira
                 F.append(node)

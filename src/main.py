@@ -42,9 +42,9 @@ def run_bfs_algorithm(arguments: Arguments):
     F = deque() # <-- Fronteira - deque eh uma implementacao para fila
     F.append(
         Node(                           # <-- Estado Inicial:
-            arguments.initial_state     # <-- a) State
-            None                        # <-- b) Action
-            0                           # <-- c) Cost
+            arguments.initial_state,    # <-- a) State
+            None,                       # <-- b) Action
+            0,                          # <-- c) Cost
             None                        # <-- d) Predecessor
         )
     )

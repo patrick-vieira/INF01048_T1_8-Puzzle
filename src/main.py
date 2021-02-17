@@ -1,7 +1,13 @@
+# Importa bibliotecas basicas necessarias
 import sys
 import logging
 
+# Importa estruturas de dados utilizadas
+from collections import deque
+
+# Importa definicoes do restante do codigo fonte
 from argument_parser import Arguments
+from bfs import breadth_first_search
 from expand import expand_node
 from node import Node
 from sucessor import get_successor_states
@@ -35,7 +41,20 @@ def run_expand_nodes_function(arguments: Arguments):
 # Exercicio 03
 # a) BFS
 def run_bfs_algorithm(arguments: Arguments):
-    pass
+    root_node = Node(                   # <-- Estado Inicial:
+            arguments.initial_state,    # <-- a) State
+            None,                       # <-- b) Action
+            0,                          # <-- c) Cost
+            None                        # <-- d) Predecessor
+        )
+
+    final_node = breadth_first_search(root_node)
+
+    to_print = ""
+    for move in final_node.get_path_moves():
+        to_print += move + " "
+
+    print(to_print.strip())
 
 
 # b) DFS

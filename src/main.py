@@ -57,9 +57,9 @@ def main(arguments: Arguments):
         run_bfs_algorithm(arguments)
     elif arguments.algorithm == "DFS":
         run_dfs_algorithm(arguments)
-    elif arguments.algorithm == "A*1":
+    elif arguments.algorithm == "A1":
         run_astar_h1_algorithm(arguments)
-    elif arguments.algorithm == "A*2":
+    elif arguments.algorithm == "A2":
         run_astar_h2_algorithm(arguments)
     else:
         raise Exception("Sorry, no algorithm found for these arguments")

@@ -7,7 +7,7 @@ def bfs(initial_state):
     F = deque() # <-- Fronteira - deque eh uma implementacao para fila
     F.append(
         Node(                           # <-- Estado Inicial:
-            initial_state,    # <-- a) State
+            initial_state,              # <-- a) State
             None,                       # <-- b) Action
             0,                          # <-- c) Cost
             None                        # <-- d) Predecessor

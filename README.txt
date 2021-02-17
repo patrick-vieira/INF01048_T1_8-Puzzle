@@ -9,7 +9,8 @@ Os parâmetros para a execução do programa são:
  - expand = expande (parâmetros adicional -c ou --custo)
  - BFS
  - DFS
- - A*
+ - A*1
+ - A*2
 
 
 #executa algorítimo [BFS] para o estado que está no arquivo [input_file.txt] retorna resultados no arquivo [output_file.txt]

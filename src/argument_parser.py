@@ -2,11 +2,10 @@ import getopt
 import os
 import sys
 
-
 class Arguments:
 
     def __init__(self, argv):
-        self.__argv = argv[1:]
+        self.__argv = argv[1:]  # <-- Desconsidera o indice 0 pois eh o file name
         self.initial_state = ''
         self.initial_state_cost = 0
         self.algorithm = ''
@@ -19,7 +18,11 @@ class Arguments:
 
     def try_parse(self):
         try:
-            opts, args = getopt.getopt(self.__argv, "hi:o:a:c:l:", ["input=", "ofile=", "algorithm=", "cost=", "log="])
+            opts, args = getopt.getopt( # <-- C-style parser
+                self.__argv,    # <-- Lista de argumentos
+                "hi:o:a:c:l:",  # <-- Ordem dos argumentos
+                ["input=", "ofile=", "algorithm=", "cost=", "log="] # <-- Versao longa dos parametros
+            )
         except getopt.GetoptError:
             print('test.py -h for help')
             sys.exit(2)
@@ -29,10 +32,10 @@ class Arguments:
                 print('test.py -i <initial_state | initial_state_file.txt> -o <output_moves_file.txt>')
                 sys.exit()
 
-            elif opt in ("-i", "--input"):
-                if arg.endswith(".txt"):
+            elif opt in ("-i", "--input"):      # <-- O input pode ser:
+                if arg.endswith(".txt"):        # <-- a) Um arquivo de texto
                     self.input_file = arg
-                else:
+                else:                           # <-- b) Uma string de estado inicial
                     self.initial_state = arg
 
             elif opt in ("-o", "--ofile"):

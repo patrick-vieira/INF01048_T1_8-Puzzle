@@ -1,5 +1,5 @@
 class Node:
-    def __init__(self, state: int, action, cost: int, predecessor):
+    def __init__(self, state, action, cost: int, predecessor):
         self.state = state
         self.action = action or "none"
         self.cost = cost

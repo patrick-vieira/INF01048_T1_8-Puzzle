@@ -7,7 +7,7 @@ from node import Node
 class TestBreadthFirstSearch(TestCase):
     def test_root_is_objective(self):
         root_node = Node(
-            123456789,
+            "12345678_",
             0,
             0,
             None
@@ -25,7 +25,7 @@ class TestBreadthFirstSearch(TestCase):
 
     def test_one_move_to_objective(self):
         root_node = Node(
-            123456798,
+            "1234567_8",
             None,
             0,
             None
@@ -43,7 +43,7 @@ class TestBreadthFirstSearch(TestCase):
 
     def test_two_moves_to_objective(self):
         root_node = Node(
-            123456978,
+            "123456_78",
             None,
             0,
             None
@@ -61,7 +61,7 @@ class TestBreadthFirstSearch(TestCase):
 
     def test_real(self):
         root_node = Node(
-            345698172,
+            "3456_8172",
             None,
             0,
             None
@@ -81,7 +81,7 @@ class TestBreadthFirstSearch(TestCase):
 
     def test_node_counter(self):
         root_node = Node(
-            293541687,
+            "2_3541687",
             None,
             0,
             None

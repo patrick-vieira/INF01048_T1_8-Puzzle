@@ -67,7 +67,7 @@ def run_dfs_algorithm(arguments: Arguments):
         None  # <-- d) Predecessor
     )
 
-    final_node = depth_first_search(root_node)
+    final_node, monitor = depth_first_search(root_node)
 
     to_print = ""
     for move in final_node.get_path_moves():

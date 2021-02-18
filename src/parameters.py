@@ -25,4 +25,4 @@ actions_movement_offset_map = {
 
 input_size = 9
 allowed_characters = ['_', '1', '2', '3', '4', '5', '6', '7', '8']
-objective_state = 123456789
+objective_state = "12345678_"

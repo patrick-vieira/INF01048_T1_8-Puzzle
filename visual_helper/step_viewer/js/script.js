@@ -54,7 +54,7 @@ function validMovement(state, movement){
   if(movement in state.availableMoves) {  
     return true
   } else {
-    console.log("invalid move: " + movement + " - for state: " + state.current)
+    alert("invalid move: " + movement + " - for state: " + state.current)
     return false
   }
 }

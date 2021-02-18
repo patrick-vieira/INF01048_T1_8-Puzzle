@@ -21,3 +21,36 @@ python3 ./src/main.py -a successor -i 2_3541687
 
 #executa algorítimo [expande] para o estado [2_3541687] com custo [0]
 python3 ./src/main.py -a expand -i 2_3541687 -c 0
+
+
+
+
+
+
+
+
+##
+Considerações. usar recursão pode causar problema por causa da profundidade
+RecursionError: maximum recursion depth exceeded while calling a Python object
+
+    def get_path_nodes(self):
+        path = [self]
+        self.__get_path(path)
+        path.reverse()
+        return path
+
+    def __get_path(self, curr_path: list) -> list:
+        if self.predecessor is not None:  # <-- Se ha um antecessor
+            curr_path.append(self.predecessor)  # <-- Adicionamos ele no caminho
+            return self.predecessor.__get_path(curr_path)
+        else:  # <-- se não tem predecessor é o início
+            return curr_path
+
+uma alternativa simples e barata foi alterar a fução recursiva pelo loop ;)
+
+    def __get_path_sem_recursao(self, path: list, node):
+        pred = node.predecessor
+
+        while pred:
+            path.append(pred)
+            pred = pred.predecessor

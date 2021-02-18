@@ -5,7 +5,7 @@
 }
 body {
   display: flex;
-  background-color: #4e4e4e;
+  background-color: #485458;
   text-align: center;
   flex-direction: column;
   padding-top: 2%;
@@ -13,7 +13,7 @@ body {
 #container {
   width: 500px;
   height: 500px;
-  background: #e8e8e8;
+  background: #E4FDE1;
   margin: 10px auto;
 }
 
@@ -21,7 +21,7 @@ body {
 #inputs {
   width: 500px;
   height: 100%;
-  background: #e8e8e8;
+  background: #E4FDE1;
   margin: 10px auto;
 
   display: flex;

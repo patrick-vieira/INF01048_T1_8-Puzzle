@@ -6,8 +6,8 @@ import parameters
 def __is_on_border_limits(state, border_limits):
     current_space_location = __get_current_space_location(state)
 
-    for left_border_limit in border_limits:
-        if current_space_location == left_border_limit:
+    for border_limit in border_limits:
+        if current_space_location == border_limit:
             return True
 
     return False

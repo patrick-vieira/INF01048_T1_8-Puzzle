@@ -4,7 +4,7 @@ blank_space_numeric_replace = "0"
 
 move_left = "esquerda"
 move_right = "direita"
-move_up = "cima"
+move_up = "acima"
 move_down = "abaixo"
 
 step_cost = 1

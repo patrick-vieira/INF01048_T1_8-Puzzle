@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet'>
+    <title>Sliding Tile Puzzle</title>
+</head>
+<body>
+    <div id="container">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <div id="inputs">
+    <label for="initialState">Initial State</label>
+    <input placeholder="initial state" id="initialState" value="2_3541687"></input>
+    <label for="total_moves">Moves to execute</label>
+    <input type="range" min="0" max="100" value="100" class="slider" id="total_moves" disabled>
+
+    
+    <label for="moves">Moves</label>
+      <textarea id="moves" rows="10">esquerda abaixo direita direita acima esquerda abaixo abaixo esquerda acima acima direita direita abaixo esquerda abaixo direita acima esquerda esquerda abaixo direita direita
+    </textarea>
+
+    <button id="run" onclick="run()">speed run</button>
+    <button id="run" onclick="runAnimated()">animated run</button>
+    <label for="sleep">Step sleep</label>
+    <input type="range" min="0" max="500" value="250" class="slider" id="sleep">
+    <button id="reset" onclick="setUp()">reset</button>
+
+    </div>
+</body>
+<script src="js/script.js"></script>
+</html>

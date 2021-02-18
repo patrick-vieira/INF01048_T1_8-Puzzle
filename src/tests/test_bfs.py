@@ -70,8 +70,8 @@ class TestBreadthFirstSearch(TestCase):
         final_node, monitor = breadth_first_search(root_node)
         final_node_moves = final_node.get_path_moves()
 
-        expected_path_moves = ['esquerda', 'abaixo', 'direita', 'direita', 'cima', 'esquerda', 'cima', 'esquerda',
-                               'abaixo', 'direita', 'abaixo', 'direita', 'cima', 'cima', 'esquerda', 'abaixo',
+        expected_path_moves = ['esquerda', 'abaixo', 'direita', 'direita', 'acima', 'esquerda', 'acima', 'esquerda',
+                               'abaixo', 'direita', 'abaixo', 'direita', 'acima', 'acima', 'esquerda', 'abaixo',
                                'direita', 'abaixo']
 
         expected_expansions = 23313
@@ -90,9 +90,9 @@ class TestBreadthFirstSearch(TestCase):
         final_node, monitor = breadth_first_search(root_node)
         final_node_moves = final_node.get_path_moves()
 
-        expected_path_moves = ['esquerda', 'abaixo', 'direita', 'direita', 'cima', 'esquerda', 'abaixo', 'abaixo',
-                               'esquerda', 'cima', 'cima', 'direita', 'direita', 'abaixo', 'esquerda', 'abaixo',
-                               'direita', 'cima', 'esquerda', 'esquerda', 'abaixo', 'direita', 'direita']
+        expected_path_moves = ['esquerda', 'abaixo', 'direita', 'direita', 'acima', 'esquerda', 'abaixo', 'abaixo',
+                               'esquerda', 'acima', 'acima', 'direita', 'direita', 'abaixo', 'esquerda', 'abaixo',
+                               'direita', 'acima', 'esquerda', 'esquerda', 'abaixo', 'direita', 'direita']
 
         expected_expansions = 100002
 

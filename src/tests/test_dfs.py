@@ -38,9 +38,9 @@ class TestBreadthFirstSearch(TestCase):
         final_node_moves = final_node.get_path_moves()
 
         monitor2.finish()
-        expected_path_moves = ['cima', 'cima', 'direita', 'abaixo', 'abaixo', 'esquerda', 'cima', 'cima', 'direita',
-                               'abaixo', 'abaixo', 'esquerda', 'cima', 'cima', 'direita', 'abaixo', 'abaixo',
-                               'esquerda', 'cima', 'cima', 'direita', 'abaixo', 'abaixo', 'esquerda', 'cima', 'cima',
+        expected_path_moves = ['acima', 'acima', 'direita', 'abaixo', 'abaixo', 'esquerda', 'acima', 'acima', 'direita',
+                               'abaixo', 'abaixo', 'esquerda', 'acima', 'acima', 'direita', 'abaixo', 'abaixo',
+                               'esquerda', 'acima', 'acima', 'direita', 'abaixo', 'abaixo', 'esquerda', 'acima', 'acima',
                                'direita', 'abaixo', 'abaixo']
 
         expected_expansions = 29

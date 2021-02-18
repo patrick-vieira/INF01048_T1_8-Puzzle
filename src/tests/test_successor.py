@@ -7,7 +7,7 @@ class SuccessorFunctionTest(TestCase):
     def setUp(self):
         self.left = "esquerda"
         self.right = "direita"
-        self.up = "cima"
+        self.up = "acima"
         self.down = "abaixo"
 
     # # # # #

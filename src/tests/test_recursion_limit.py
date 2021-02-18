@@ -12,5 +12,5 @@ class Test(TestCase):
 
     def test_f(self):
         with RecursionLimit(10000):
-            a = self.fibonacci(100)
+            a = self.fibonacci(10)
         print("vai até estourar")

@@ -4,12 +4,8 @@ class Node:
         self.action = action or "none"
         self.cost = cost
         self.predecessor: Node = predecessor
-        # self.predecessors: [Node] = list()
         self.predecessors = ""
         self.successors: [Node] = []
-
-        # self.__set_predecessor(predecessor)
-        # self.__set_predecessor2(predecessor)
 
     def set_successors(self, successor_nodes: []):
         self.successors = successor_nodes
@@ -24,34 +20,25 @@ class Node:
 
     def get_path_nodes(self):
         path = [self]
-        self.__get_path_sem_recursao(path, self)
+        self.__get_path(path)
         # self.__get_path(path)
         path.reverse()
         return path
 
-    def __get_path_sem_recursao(self, path: list, node):
-        pred = node.predecessor
+    def __get_path(self, path: list):
+        pred = self.predecessor
 
         while pred:
             path.append(pred)
             pred = pred.predecessor
 
     # deprecated
-    def __get_path(self, curr_path: list) -> list:
+    def __get_path_old(self, curr_path: list) -> list:
         if self.predecessor is not None:  # <-- Se ha um antecessor
             curr_path.append(self.predecessor)  # <-- Adicionamos ele no caminho
-            return self.predecessor.__get_path(curr_path)
+            return self.predecessor.__get_path_old(curr_path)
         else:  # <-- se não tem predecessor é o início
             return curr_path
-
-    def __set_predecessor(self, father_node):
-        if father_node:
-            self.predecessors = father_node.predecessors.copy()
-            self.predecessors.append(father_node)
-
-    def __set_predecessor2(self, father_node):
-        if father_node:
-            self.predecessors = father_node.predecessors + ", " + father_node.action
 
     def __str__(self):
         to_string = "(" + str(self.action) \
@@ -65,10 +52,10 @@ class Node:
 
         return to_string + ")"
 
-    def __repr__(self):
+    def __repr__(self):  # função para visualizar os valores no debbuger sem precisar abrir o objeto
         return self.__str__()
 
-    def __eq__(self, other):
+    def __eq__(self, other):  # função para comparar nós
         """Overrides the default implementation"""
         if isinstance(other, Node):
             # um nó é igual ao outro quando o estado e o custo é o mesmo "e a ação também?"
@@ -77,6 +64,6 @@ class Node:
 
         return NotImplemented
 
-    def __hash__(self):
+    def __hash__(self):  # hash unico para cada nó
         """Overrides the default implementation"""
         return hash(self.state) ^ hash(self.action) ^ hash(self.cost)

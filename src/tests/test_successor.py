@@ -16,18 +16,18 @@ class SuccessorFunctionTest(TestCase):
     # 8 6 7 #
     # # # # #
     def test_successor_space_center(self):
-        initial_node = "3215_4867"
+        initial_state = 321594867
 
-        expected_node_list = {
-            self.left: "321_54867",
-            self.right: "32154_867",
-            self.up: "3_1524867",
-            self.down: "3215648_7"
+        expected_state_list = {
+            self.left: 321954867,
+            self.right: 321549867,
+            self.up: 391524867,
+            self.down: 321564897
         }
 
-        successors_dict = get_successor_states(initial_node)
+        successors_dict = get_successor_states(initial_state)
 
-        self.assertDictEqual(expected_node_list, successors_dict)
+        self.assertDictEqual(expected_state_list, successors_dict)
 
     # # # # #
     # 3 2 1 #
@@ -35,12 +35,12 @@ class SuccessorFunctionTest(TestCase):
     # 8 6 7 #
     # # # # #
     def test_successor_space_center_left(self):
-        initial_node = "321_54867"
+        initial_node = 321954867
 
         expected_node_list = {
-            self.right: "3215_4867",
-            self.up: "_21354867",
-            self.down: "321854_67"
+            self.right: 321594867,
+            self.up: 921354867,
+            self.down: 321854967
         }
 
         successors_dict = get_successor_states(initial_node)
@@ -53,12 +53,12 @@ class SuccessorFunctionTest(TestCase):
     # 8 6 7 #
     # # # # #
     def test_successor_space_center_right(self):
-        initial_node = "32154_867"
+        initial_node = 321549867
 
         expected_node_list = {
-            self.left: "3215_4867",
-            self.up: "32_541867",
-            self.down: "32154786_"
+            self.left: 321594867,
+            self.up: 329541867,
+            self.down: 321547869
         }
 
         successors_dict = get_successor_states(initial_node)
@@ -71,12 +71,12 @@ class SuccessorFunctionTest(TestCase):
     # 8 6 7 #
     # # # # #
     def test_successor_space_center_up(self):
-        initial_node = "3_1524867"
+        initial_node = 391524867
 
         expected_node_list = {
-            self.right: "31_524867",
-            self.left: "_31524867",
-            self.down: "3215_4867"
+            self.right: 319524867,
+            self.left: 931524867,
+            self.down: 321594867
         }
 
         successors_dict = get_successor_states(initial_node)
@@ -89,12 +89,12 @@ class SuccessorFunctionTest(TestCase):
     # 8 _ 7 #
     # # # # #
     def test_successor_space_center_down(self):
-        initial_node = "3215648_7"
+        initial_node = 321564897
 
         expected_node_list = {
-            self.left: "321564_87",
-            self.right: "32156487_",
-            self.up: "3215_4867"
+            self.left: 321564987,
+            self.right: 321564879,
+            self.up: 321594867
         }
 
         successors_dict = get_successor_states(initial_node)
@@ -107,11 +107,11 @@ class SuccessorFunctionTest(TestCase):
     # 8 6 7 #
     # # # # #
     def test_successor_space_upper_left_corner(self):
-        initial_node = "_31524867"
+        initial_node = 931524867
 
         expected_node_list = {
-            self.right: "3_1524867",
-            self.down: "531_24867"
+            self.right: 391524867,
+            self.down: 531924867
         }
 
         successors_dict = get_successor_states(initial_node)
@@ -124,11 +124,11 @@ class SuccessorFunctionTest(TestCase):
     # 8 6 7 #
     # # # # #
     def test_successor_space_upper_right_corner(self):
-        initial_node = "31_524867"
+        initial_node = 319524867
 
         expected_node_list = {
-            self.left: "3_1524867",
-            self.down: "31452_867"
+            self.left: 391524867,
+            self.down: 314529867
         }
 
         successors_dict = get_successor_states(initial_node)
@@ -141,11 +141,11 @@ class SuccessorFunctionTest(TestCase):
     # _ 6 7 #
     # # # # #
     def test_successor_space_lower_left_corner(self):
-        initial_node = "531824_67"
+        initial_node = 531824967
 
         expected_node_list = {
-            self.right: "5318246_7",
-            self.up: "531_24867"
+            self.right: 531824697,
+            self.up: 531924867
         }
 
         successors_dict = get_successor_states(initial_node)
@@ -158,11 +158,11 @@ class SuccessorFunctionTest(TestCase):
     # 8 6 _ #
     # # # # #
     def test_successor_space_lower_right_corner(self):
-        initial_node = "31452786_"
+        initial_node = 314527869
 
         expected_node_list = {
-            self.left: "3145278_6",
-            self.up: "31452_867"
+            self.left: 314527896,
+            self.up: 314529867
         }
 
         successors_dict = get_successor_states(initial_node)

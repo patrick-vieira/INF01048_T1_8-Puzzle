@@ -1,5 +1,6 @@
 blank_space = "_"
 blank_space_unicode = ord(blank_space)
+blank_space_numeric_replace = "0"
 
 move_left = "esquerda"
 move_right = "direita"
@@ -7,13 +8,6 @@ move_up = "cima"
 move_down = "abaixo"
 
 step_cost = 1
-
-actions = {
-    move_left: move_left,
-    move_right: move_right,
-    move_up: move_right,
-    move_down: move_right
-}
 
 actions_limits = {
     move_left: [0, 3, 6],
@@ -31,4 +25,4 @@ actions_movement_offset_map = {
 
 input_size = 9
 allowed_characters = ['_', '1', '2', '3', '4', '5', '6', '7', '8']
-objective_state = "12345678_"
+objective_state = 123456789

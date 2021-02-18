@@ -18,10 +18,19 @@ class Monitor:
 
     def finish(self):
         self.end_time = perf_counter_ns()
+        self.log_results()
 
     def count(self):
         self.expansions += 1
         # print(self.expansions)
 
-    def get_execution_time_in_nanoseconds(self):
-        return self.end_time - self.start_time
+    def get_execution_time_in_seconds(self):
+        return (self.end_time - self.start_time) / 1e9
+
+    def log_results(self):
+        if self.get_execution_time_in_seconds() > 0.01:
+            message = "Execution time: " + str(self.get_execution_time_in_seconds()) + " seconds"
+        else:
+            message = "Execution time: " + str(self.get_execution_time_in_seconds() * 1000) + " milliseconds"
+        message += "\nExpanded " + str(self.expansions) + " times."
+        print(message)

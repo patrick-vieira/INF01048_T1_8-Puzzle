@@ -1,13 +1,15 @@
 class Node:
-    def __init__(self, state, action, cost, predecessor):
+    def __init__(self, state: int, action, cost: int, predecessor):
         self.state = state
-        self.action = action
+        self.action = action or "none"
         self.cost = cost
         self.predecessor: Node = predecessor
-        self.predecessors: [Node] = list()
+        # self.predecessors: [Node] = list()
+        self.predecessors = ""
         self.successors: [Node] = []
 
-        self.__set_predecessor(predecessor)
+        # self.__set_predecessor(predecessor)
+        # self.__set_predecessor2(predecessor)
 
     def set_successors(self, successor_nodes: []):
         self.successors = successor_nodes
@@ -22,10 +24,19 @@ class Node:
 
     def get_path_nodes(self):
         path = [self]
-        self.__get_path(path)
+        self.__get_path_sem_recursao(path, self)
+        # self.__get_path(path)
         path.reverse()
         return path
 
+    def __get_path_sem_recursao(self, path: list, node):
+        pred = node.predecessor
+
+        while pred:
+            path.append(pred)
+            pred = pred.predecessor
+
+    # deprecated
     def __get_path(self, curr_path: list) -> list:
         if self.predecessor is not None:  # <-- Se ha um antecessor
             curr_path.append(self.predecessor)  # <-- Adicionamos ele no caminho
@@ -37,6 +48,10 @@ class Node:
         if father_node:
             self.predecessors = father_node.predecessors.copy()
             self.predecessors.append(father_node)
+
+    def __set_predecessor2(self, father_node):
+        if father_node:
+            self.predecessors = father_node.predecessors + ", " + father_node.action
 
     def __str__(self):
         to_string = "(" + str(self.action) \

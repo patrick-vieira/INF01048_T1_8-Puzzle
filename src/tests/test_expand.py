@@ -2,11 +2,12 @@ from unittest import TestCase
 
 from expand import expand_node
 from node import Node
+from recursion_limit import RecursionLimit
 
 
 class Test(TestCase):
     def test_expand_center_root_node(self):
-        state = "3215_4867"
+        state = 321594867
         action = None
         cost = 0
         predecessor = None

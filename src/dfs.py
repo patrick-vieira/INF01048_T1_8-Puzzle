@@ -17,7 +17,8 @@ def depth_first_search(root_node: Node) -> (Node, Monitor):
 
     while True:
         if not F:  # <-- Se a fronteira fica vazia, nao existe caminho
-            return False
+            monitor.finish()
+            return False, monitor
         v = F.pop()  # <-- Retira um nodo v da fronteira
         if v.state == parameters.objective_state:  # <-- Chegou no estado final?
             monitor.finish()

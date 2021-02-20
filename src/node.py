@@ -1,14 +1,18 @@
 class Node:
-    def __init__(self, state, action, cost: int, predecessor):
-        self.state = state
+    def __init__(self, action, state, cost: int, predecessor):
         self.action = action or "none"
-        self.cost = cost
+        self.state = state
+        self.cost = int(cost)
+        self.heuristic_cost = cost
         self.predecessor: Node = predecessor
         self.predecessors = ""
         self.successors: [Node] = []
 
     def set_successors(self, successor_nodes: []):
         self.successors = successor_nodes
+
+    def set_heuristic_cost(self, heuristic_cost):
+        self.heuristic_cost = self.cost + heuristic_cost
 
     def get_path_moves(self):
         moves = []
@@ -43,7 +47,7 @@ class Node:
     def __str__(self):
         to_string = "(" + str(self.action) \
                     + "," + str(self.state) \
-                    + "," + str(self.cost)
+                    + "," + str(self.heuristic_cost)
 
         if self.predecessor:
             to_string += "," + str(self.predecessor.state)
@@ -60,10 +64,16 @@ class Node:
         if isinstance(other, Node):
             # um nó é igual ao outro quando o estado e o custo é o mesmo "e a ação também?"
             return self.state == other.state \
-                   and self.cost == other.cost
+                   and self.heuristic_cost == other.heuristic_cost
 
         return NotImplemented
 
     def __hash__(self):  # hash unico para cada nó
         """Overrides the default implementation"""
-        return hash(self.state) ^ hash(self.action) ^ hash(self.cost)
+        return hash(self.state) ^ hash(self.action) ^ hash(self.heuristic_cost)
+
+    def __lt__(self, other):  # Usado na comparação de ordenação
+        if isinstance(other, Node):
+            return self.heuristic_cost < other.heuristic_cost
+
+        return NotImplemented

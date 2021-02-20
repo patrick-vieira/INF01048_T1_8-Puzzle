@@ -222,7 +222,7 @@ function step(timestamp) {
 
   move = moves.shift()
 
-  if(validMovement(state, move)){
+  if(move && validMovement(state, move)){
     executeMovement(state, move)
     window.requestAnimationFrame(step);
   }

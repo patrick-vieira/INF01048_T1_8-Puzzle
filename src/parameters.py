@@ -23,6 +23,18 @@ actions_movement_offset_map = {
     move_up: -3
 }
 
+lines_orientation = {
+    1: [0, 1, 2],
+    2: [3, 4, 5],
+    3: [6, 7, 8]
+}
+
+columns_orientation = {
+    1: [0, 3, 6],
+    2: [1, 4, 7],
+    3: [2, 5, 8]
+}
+
 input_size = 9
 allowed_characters = ['_', '1', '2', '3', '4', '5', '6', '7', '8']
 objective_state = "12345678_"
